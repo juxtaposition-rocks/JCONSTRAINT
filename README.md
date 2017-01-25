@@ -1,14 +1,14 @@
 # JCONSTRAINT
 
-A SILENT ALTERNATIVE TO TALKING OUT LOUD 
+A SILENT ALTERNATIVE TO TALKING OUT LOUD
 
 ## Intro
 
 "J" stands for "journal", though JCONSTRAINT is meant to more of an alternative to journaling rather than a kind of journaling software. "Constraint" comes from the "constraints are liberating" idea from the Ruby on Rails crowd. The lack of features is considered a feature because it focuses you on what matters.
 
-Why is journalling so useful and so highly recommended and such a thing you should do? It's a means to an end: decompressing all the pressure building up in your head. Talking to your friends can be thought of as a form of journaling... or an as alternative to journaling. That's a lot like what JCONSTRAINT is all about.
+Why is journaling so useful and so highly recommended and such a thing you should do? It's a means to an end: decompressing all the pressure building up in your head. Talking to your friends can be thought of as a form of journaling... or an as alternative to journaling. That's a lot like what JCONSTRAINT is all about.
 
-We go straight to the source. How did Jesus journal? He didn't. (Nobody did in those days. It just wasn't practical.) How did Jesus journal? He got out in the wilderness and talked to his father God directly. Why out in the winderness? Of course it was because he was talking out loud and it was a private conversation. ;-)
+We go straight to the source. How did Jesus journal? He didn't. (Nobody did in those days. It just wasn't practical.) How did Jesus journal? He got out in the wilderness and talked to his father God directly. Why out in the wilderness? Of course it was because he was talking out loud and it was a private conversation. ;-)
 
 For many people, it's hard to find a good time and place to have a private conversation with God out loud. The reason why JCONSTRAINT is described as A SILENT ALTERNATIVE TO TALKING OUT LOUD is because that's all it really is. It lets you type instead of talking, so that all you need is a small degree of visual isolation--not a large degree of audio isolation.
 
@@ -16,25 +16,25 @@ For many people, it's hard to find a good time and place to have a private conve
 
 The main feature of JCONSTRAINT is its keyboard layout. (Some might argue that the keyboard layout is its ONLY feature--if you don't consider the "constraints" as features...)
 
-JCONSTRAINT basically takes the non-ergonomic keyboard built into your laptop (or whatever you're using) and makes it a little more ergonomic by allowing your right hand to move one key to the right and by making the only usable keys within easy reach. To do this it takes away your ability to type lower-case letters, many lesser-used punction/symbol characters, and even carraige returns. You cannot cursor back through what you've already typed, and JCONSTRAINT even takes away your ability to delete or "backspace" characters!
+JCONSTRAINT basically takes the non-ergonomic keyboard built into your laptop (or whatever you're using) and makes it a little more ergonomic by allowing your right hand to move one key to the right and by making the only usable keys within easy reach. To do this it takes away your ability to type lower-case letters, many lesser-used punctuation/symbol characters, and even carriage returns. You cannot cursor back through what you've already typed, and JCONSTRAINT even takes away your ability to delete or "backspace" characters!
 
-Another key feature of the layout is that no key positions are shared between it and QWERTY. This makes it easier to learn and get fast at using it without sabataging your ability to use your keyboard normally.
+Another key feature of the layout is that no key positions are shared between it and QWERTY. This makes it easier to learn and get fast at using it without sabotaging your ability to use your keyboard normally.
 
 Rather than replicate the layout in this README, i will refer you straight to the source code file to look at it. It's plainly visible there already. (Also, it may change slightly in the future... or you may want to modify it.) An important thing to know, though, is that while the "home row" keys are what you would expect on the right hand (all in an actual row: E H T R), on the left hand the "home row" is O I N D, meaning that the home positions of the ring finger and middle finger are one row higher than that of the other two fingers.
 
 Now, because the right hand is meant to be positioned one key to the right of "normal", JCONSTRAINT has you press the "E" character 3 times after startup before accepting any other input so that you are sure you have your right hand in the right place.
 
-Pressing the spacebar mulitple times in a row prints some fancy symbols. This makes a good alternative to a cariage return.
+Pressing the spacebar multiple times in a row prints some fancy symbols. This makes a good alternative to a carriage return.
 
 That's pretty much it. Output is printed to the console window and will not be saved to a file. (If you want to save anything, you will need to use "copy and paste" and a separate app of some sort.)
 
 ## Appendix: How the keyboard layout was chosen.
 
-On my laptop (and on many keyboards), there is a number pad on the right, and so the regular part of the keyboard is left-of-center. Thus when using my laptop, my left arm is extended a little more, and my right hand is folded in a little more. (Also, my fingers are pretty long. Sorry if yours are not.) This arm position plus (of course) they asymetry of the standard QWERTY layout itself, including the weird slant to the columns, explains the asymetric shape of the JCONSTRAINT layout.
+On my laptop (and on many keyboards), there is a number pad on the right, and so the regular part of the keyboard is left-of-center. Thus when using my laptop, my left arm is extended a little more, and my right hand is folded in a little more. (Also, my fingers are pretty long. Sorry if yours are not.) This arm position plus (of course) they asymmetry of the standard QWERTY layout itself, including the weird slant to the columns, explains the asymmetric shape of the JCONSTRAINT layout.
 
-As for which keys are where: I built up a corpus of carefully-selected text that mostly included past writings of mine from journal entries, dream writups, and prayers, plus a few short selections from the Bible, song lyrics, etc. I made a genetic algorithm runner that judged the quality of a layout based on how much effort it would take to type the whole corpus based on individual key weights plus two-key combination weights. I then also used a "refining" mode that took the layouts found by the genetic algorithm and ensured a true "local maximum" had been found. After using this process to select a layout, that layout was still refined further by hand after using it.
+As for which keys are where: I built up a corpus of carefully-selected text that mostly included past writings of mine from journal entries, dream writeups, and prayers, plus a few short selections from the Bible, song lyrics, etc. I made a genetic algorithm runner that judged the quality of a layout based on how much effort it would take to type the whole corpus based on individual key weights plus two-key combination weights. I then also used a "refining" mode that took the layouts found by the genetic algorithm and ensured a true "local maximum" had been found. After using this process to select a layout, that layout was still refined further by hand after using it.
 
-Here's the distribution of character frequencies in my corpus, each as a perccentage of the frequency of E.
+Here's the distribution of character frequencies in my corpus, each as a percentage of the frequency of E.
 
     = 0.0021751424718319
     ~ 0.0130508548309914
