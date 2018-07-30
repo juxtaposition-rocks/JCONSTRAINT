@@ -16,21 +16,21 @@ For many people, it's hard to find a good time and place to have a private conve
 
 The main feature of JCONSTRAINT is its keyboard layout. (Some might argue that the keyboard layout is its ONLY feature--if you don't consider the "constraints" as features...)
 
-JCONSTRAINT basically takes the non-ergonomic keyboard built into your laptop (or whatever you're using) and makes it a little more ergonomic by allowing your right hand to move one key to the right and by making the only usable keys within easy reach. To do this it takes away your ability to type lower-case letters, many lesser-used punctuation/symbol characters, and even carriage returns. You cannot cursor back through what you've already typed, and JCONSTRAINT even takes away your ability to delete or "backspace" characters!
+JCONSTRAINT basically takes the non-ergonomic keyboard built into your laptop (or whatever you're using) and makes it a little more ergonomic by allowing your right hand to move one key to the right and by making the only usable keys within easy reach. To do this it takes away your ability to type lower-case letters, many lesser-used punctuation/symbol characters, and even carriage returns. You cannot cursor back through what you've already typed, and can only delete the very last word you typed (which is done by pressing the spacebar twice instead of once).
 
 Another key feature of the layout is that no key positions are shared between it and QWERTY. This makes it easier to learn and get fast at using it without sabotaging your ability to use your keyboard normally.
 
-Rather than replicate the layout in this README, i will refer you straight to the source code file to look at it. It's plainly visible there already. (Also, it may change slightly in the future... or you may want to modify it.) An important thing to know, though, is that while the "home row" keys are what you would expect on the right hand (all in an actual row: E H T R), on the left hand the "home row" is O I N D, meaning that the home positions of the ring finger and middle finger are one row higher than that of the other two fingers.
+Rather than replicate the layout in this README, i will refer you straight to the source code file to look at it. It's plainly visible there already. (Also, it may change slightly in the future... or you may want to modify it.)
+
+An important thing to know is what the "home row" keys are. For the right hand, the home row is all in an actual row like you would expect: E H T R. For the left hand, though, the "home row" is O I N D, meaning that the home positions of the ring finger and middle finger are one row higher than that of the other two fingers.
 
 Now, because the right hand is meant to be positioned one key to the right of "normal", JCONSTRAINT has you press the "E" character 3 times after startup before accepting any other input so that you are sure you have your right hand in the right place.
-
-Pressing the spacebar multiple times in a row prints some fancy symbols. This makes a good alternative to a carriage return.
 
 That's pretty much it. Output is printed to the console window and will not be saved to a file. (If you want to save anything, you will need to use "copy and paste" and a separate app of some sort.)
 
 ## Appendix: How the keyboard layout was chosen.
 
-On my laptop (and on many keyboards), there is a number pad on the right, and so the regular part of the keyboard is left-of-center. Thus when using my laptop, my left arm is extended a little more, and my right hand is folded in a little more. (Also, my fingers are pretty long. Sorry if yours are not.) This arm position plus (of course) they asymmetry of the standard QWERTY layout itself, including the weird slant to the columns, explains the asymmetric shape of the JCONSTRAINT layout.
+On my laptop (and on many keyboards), there is a number pad on the right, and so the regular part of the keyboard is left-of-center. Thus when using my laptop, my left arm is extended a little more, and my right hand is folded in a little more. (Also, my fingers are pretty long. Sorry if yours are not.) This arm position plus (of course) the asymmetry of the standard QWERTY layout itself, including the weird slant to the columns, explains the asymmetric shape of the JCONSTRAINT layout.
 
 As for which keys are where: I built up a corpus of carefully-selected text that mostly included past writings of mine from journal entries, dream writeups, and prayers, plus a few short selections from the Bible, song lyrics, etc. I made a genetic algorithm runner that judged the quality of a layout based on how much effort it would take to type the whole corpus based on individual key weights plus two-key combination weights. I then also used a "refining" mode that took the layouts found by the genetic algorithm and ensured a true "local maximum" had been found. After using this process to select a layout, that layout was still refined further by hand after using it.
 
