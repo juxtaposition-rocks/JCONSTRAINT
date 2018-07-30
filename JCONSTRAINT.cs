@@ -1,22 +1,13 @@
 using System;
 using System.Collections.Generic;
-
-// todo
-// - have the console do word-based wrapping, if possible.
-// - give the console a max display width of 60ish chars.
-// - also append output to a file?
-
 namespace Journal
 {
 	class Journal
 	{
-		private bool fin = false;
-		private char prev = ' ';
-		private int ding = 0;
+        void Out(char x) { Console.Write(x); }
+        void OutLine() { Console.WriteLine(); }
 
-		void Out<T>(T x) { Console.Write(x); }
-
-		ConsoleKey[] KeyPositions = {
+        ConsoleKey[] KeyPositions = {
 			ConsoleKey.D2,ConsoleKey.D3,
 			ConsoleKey.Tab,ConsoleKey.Q,ConsoleKey.W,ConsoleKey.E,ConsoleKey.R,ConsoleKey.T,ConsoleKey.I,ConsoleKey.O,ConsoleKey.P,ConsoleKey.Oem4,ConsoleKey.Oem6,
 			ConsoleKey.A,ConsoleKey.S,ConsoleKey.D,ConsoleKey.F,ConsoleKey.G,ConsoleKey.J,ConsoleKey.K,ConsoleKey.L,ConsoleKey.Oem1,ConsoleKey.Oem7,
@@ -28,8 +19,8 @@ namespace Journal
 			'"', 'L', 'I', 'N', 'G', 'P',        '.', 'M', 'W', 'V', '\'',
 			      'O', 'U', 'S', 'D', 'C',   ',', 'E', 'H', 'T', 'R',
 			                      'Y',        'A', 'F', 'B', 'K',
-			' ', 'd'
-		};
+			' ', '♣'
+        };
 		Char[] AltKeyList = { // = < > ~ % × ÷
 			         '♦', '♥',
 			'♠', '•', 'Z', '&', '#', '=',        '!', '5', '4', '3', '8',
@@ -55,32 +46,31 @@ namespace Journal
 			}
 		}
 
-		void NextKey(ConsoleKey x, ConsoleModifiers m)
+        private char prev = ' ';
+        private int savedcol = -1;
+        private int currentcol = 0;
+        void NextKey(ConsoleKey x, ConsoleModifiers m)
 		{
 			char c; bool thing;
 			if ((m & ConsoleModifiers.Shift) != 0) { thing = ShiftKeys.TryGetValue(x, out c); }
 			else if ((m & ConsoleModifiers.Alt) != 0) { thing = AltKeys.TryGetValue(x, out c); }
 			else { thing = MainKeys.TryGetValue(x, out c); }
+
 			if (thing)
 			{
-				if (c == ' ' && prev == ' ')
+                if (prev == ' ' && c == ' ')
+                {
+                    while (currentcol - 1 > savedcol) { --Console.CursorLeft; Console.Write(' '); --Console.CursorLeft; --currentcol; }
+                }
+                else
 				{
-					++ding;
-					if (ding >= 3){ Out("• ♦ • "); }
-					else if (ding == 2) { Out("♦ • "); }
-					else { Out("• "); }
-				}
-				else
-				{
-					ding = 0;
-					if (c == 'd')
-					{
-						Out(System.DateTime.Now.ToString("yyyy.MM.dd (dddd)"));
-					}
-					else
-					{
-						Out(c);
-					}
+                    if (prev == ' ')
+                    {
+                        if (currentcol >= 60) { OutLine(); currentcol = 0; }
+                        savedcol = currentcol - 1;
+                    }
+                    Out(c);
+                    ++currentcol;
 				}
 				prev = c;
 			}
@@ -91,7 +81,8 @@ namespace Journal
 		}
 
 		private void Main() {
-			while (!fin)
+            bool fin = false;
+            while (!fin)
 			{
 				var rk = Console.ReadKey(true);
 				if (rk.Key == ConsoleKey.Escape || rk.Key == ConsoleKey.Oem3) { fin = true; }
